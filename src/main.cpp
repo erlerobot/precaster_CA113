@@ -37,7 +37,7 @@ int run(int argc, char **argv)
   // Argument 1 is the serial port or enumerate flag
   string port(argv[1]);
 
-  else if( argc < 3 ) {
+  if( argc < 3 ) {
 	  print_usage();
 	  return 1;
   }
