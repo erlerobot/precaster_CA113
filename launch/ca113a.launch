@@ -1,0 +1,8 @@
+<launch>
+
+  <node name="precaster_laser2d_ca113a" pkg="precaster_laser2d_ca113a" type="ca113a">
+    <param name="baudrate" type="int" value="230400" />
+    <param name="port" type="string" value="/dev/ttyAMA0" />
+  </node>
+
+</launch>
