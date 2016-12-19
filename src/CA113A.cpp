@@ -1,6 +1,8 @@
 #include "CA113A.hpp"
 
-CA113A::CA113A(std::string port, unsigned long baud)
+CA113A::CA113A(std::string port,
+               unsigned long baud,
+               std::shared_ptr<rclcpp::node::Node> node)
  :my_serial(port,
             baud,
             serial::Timeout::simpleTimeout(1000),
@@ -17,13 +19,12 @@ CA113A::CA113A(std::string port, unsigned long baud)
   laser_measurements.resize(360);
   laser_intensities.resize(360);
 
-  ros::NodeHandle n;
-  laser_pub = n.advertise<sensor_msgs::LaserScan>("scan", 1);
+  laser_pub = node->create_publisher<sensor_msgs::msg::LaserScan>("scan", rmw_qos_profile_sensor_data);
 }
 
-void CA113A::read_message()
+void CA113A::read_and_send_message()
 {
-  sensor_msgs::LaserScan laser_scan;
+  sensor_msgs::msg::LaserScan laser_scan;
   laser_scan.angle_min = 0;
   laser_scan.angle_max = 360;
   laser_scan.angle_increment = 1*3.14/180;
@@ -50,7 +51,7 @@ void CA113A::read_message()
     }
 
     int angle = read_bytes[0]*4;
-    int rpm = (read_bytes[2] << 8) + read_bytes[1];
+    //int rpm = (read_bytes[2] << 8) + read_bytes[1];
 
     int distance1 = (read_bytes[4] << 8) + read_bytes[3];
     int signal1 = (read_bytes[6] << 8) + read_bytes[5];
@@ -75,11 +76,11 @@ void CA113A::read_message()
     laser_intensities[angle+3] = signal4;
 
     if(angle==0){
-      for(int j = 0; j < laser_measurements.size(); j++){
+      for(unsigned int j = 0; j < laser_measurements.size(); j++){
         laser_scan.ranges[j] = laser_measurements[j];
         laser_scan.intensities[j] = laser_intensities[j];
       }
-      laser_pub.publish(laser_scan);
+      laser_pub->publish(laser_scan);
     }
   }
   return;

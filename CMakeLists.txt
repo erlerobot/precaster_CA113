@@ -1,25 +1,37 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(precaster_laser2d_ca113a)
 
-## Find catkin and any catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp sensor_msgs std_msgs serial)
+project(precaster_ca113a)
 
-## Declare a catkin package
-catkin_package()
+if(NOT WIN32)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra")
+endif()
 
-## Build talker and listener
-include_directories(include ${catkin_INCLUDE_DIRS})
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(serial REQUIRED)
 
-add_executable(ca113a src/main.cpp src/CA113A.cpp)
-target_link_libraries(ca113a ${catkin_LIBRARIES})
-add_dependencies(ca113a precaster_laser2d_ca113a)
+macro(targets)
+	if(NOT "${target_suffix} " STREQUAL " ")
+		get_rclcpp_information("${rmw_implementation}" "rclcpp${target_suffix}")
+	endif()
 
-install(
-	TARGETS ca113a
-	ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-	LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-	RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+	add_executable(precaster_ca113a${target_suffix}
+		src/main.cpp
+		src/CA113A.cpp
+	)
+	ament_target_dependencies(precaster_ca113a${target_suffix}
+	  "rclcpp${target_suffix}"
+	  "sensor_msgs"
+	  "serial"
+	)
 
-install(DIRECTORY launch/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
-PATTERN ".git" EXCLUDE)
+	install(TARGETS
+			precaster_ca113a${target_suffix}
+		  	DESTINATION bin)
+endmacro()
+
+call_for_each_rmw_implementation(targets GENERATE_DEFAULT)
+
+ament_package()
