@@ -1,5 +1,49 @@
 # precaster_laser2D
 
+[CA113](https://www.precaster.com.tw/predustrial/ca113/) is designed as a compact and reliable 2D laser distance measuring sensor. The pulse technology gives the good accuracy and response time in distance measuring and a stable output under strong ambient light.
+
+![](https://www.precaster.com.tw/predustrial/wp-content/uploads/2016/08/CA113_img4.png)
+
+### Features
+
+ - Highly Customizable module fit for most duties.
+ - Adjustable High Speed measuring up to 1800HZ.
+ - Digital output with UART.
+ - TOF Non-Contact Measuring Low Consumption Sensor.
+ - Light Communication for Data transmission.
+ - Ultra Durable Rotary Base.
+
+### Applications
+
+ - Robot eyes distance measuring
+ - Positioning and monitor of objects
+ - Security applications movement detections
+ - Level and elevator measuring
+ - Drone dodge action control
+ - 2D scanning and mapping
+
+| Model No. | CA113 Spec. | CA113 Tolerance|
+| --- | --- | --- |
+| Maximun measuring range| 6 meters | 6.5m |
+| Minimum Measuring Range|  0.1 meters | 0.05m|
+|  Repeatability Accuracy from 0.5m to 1m |  ±20 mm|  Standard Deviation 2σ, Kodak White Board|
+| Repeatability Accuracy from 1m to 5m | ±40 mm|
+| Repeatability Accuracy over 6m	 | ±1% of measured distance | |
+| Measurement Time | 1800 Hz| |
+| Unit		| Millimeter| |
+| Power Source		| 12V|  ±0.2V|
+| Power Consumption		| 2W | |
+| Laser Radiation		| Class 1| |
+| Laser Wavelength		| 808nm| |
+| Rotation Speed		| 300rpm| ±30rpm|
+| Rotation Angle Resolution		| 1°| |
+| Rotation Angle Accuracy		| ±0.5° | |
+| Operating Temperature Range		| -5°C~40°C| |
+| Storage Temperature Range		| -20°C~60°C| |
+| Serial Port Type		| UART| | |
+| Dimensions		| 61 x 21 x 18 mm| |
+| Weight		| 17.6g| ±5g | |
+
 ## Configuring precaster 2D laser CA113A
 
 Make sure that your node is able to access the data from the sensor
