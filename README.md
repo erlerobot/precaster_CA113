@@ -24,6 +24,21 @@ If **XX** is `--`: the sensor is not configured properly and you need to:
 sudo chmod a+rw /dev/ttyAMA0
 ```
 
+## Compiling the code
+
+Clone this repository in a ROS workspace
+
+```
+cd ~/ros_catkin_ws/src
+git clone https://github.com/erlerobot/precaster_laser2d
+```
+Now compile the code:
+
+```
+cd ~/ros_catkin_ws/
+catkin_make_isolated --install --pkg precaster_laser2d_ca113a
+```
+
 ## Launching manually
 ### Starting a roscore
 
