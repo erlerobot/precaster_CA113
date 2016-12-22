@@ -23,3 +23,31 @@ If **XX** is `--`: the sensor is not configured properly and you need to:
 ```
 sudo chmod a+rw /dev/ttyAMA0
 ```
+
+## Compiling the code
+
+Clone this repository in a ROS 2.0 workspace
+
+```
+cd ~/ros2_ws/src
+git clone https://github.com/erlerobot/precaster_laser2d -b ros2
+```
+Now compile the code:
+
+```
+cd ~/ros2_ws/
+source ~/ros2_ws/install/setup.bash
+ament build --only-package precaster_ca113a
+```
+
+## Execute
+
+In other terminal source your ROS 2.0 workspace
+
+```
+source ~/ros2_ws/install/setup.bash
+```
+Now launch your ROS 2.0 driver:
+```
+precaster_ca113a /dev/ttyAMA0 230400
+```
