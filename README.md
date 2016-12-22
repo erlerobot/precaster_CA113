@@ -1,4 +1,12 @@
-# precaster_laser2D
+- [Precaster 2D laser CA113](#precaster-2d-laser-ca113)
+ - [Features](#features)
+ - [Applications](#applications)
+ - [Technical data](#technical-data)
+- [Configuring Precaster 2D laser CA113A](#configuring-precaster-2d-laser-ca113a)
+- [Compiling the code from sources](#compiling-the-code-from-sources)
+- [Execute](#execute)
+
+# Precaster 2D laser CA113
 
 [CA113](https://www.precaster.com.tw/predustrial/ca113/) is designed as a compact and reliable 2D laser distance measuring sensor. The pulse technology gives the good accuracy and response time in distance measuring and a stable output under strong ambient light.
 
@@ -46,7 +54,7 @@
 | Dimensions		| 61 x 21 x 18 mm| |
 | Weight		| 17.6g| ±5g | |
 
-## Configuring precaster 2D laser CA113A
+## Configuring Precaster 2D laser CA113A
 
 Make sure that your node is able to access the data from the sensor
 
@@ -70,7 +78,7 @@ If **XX** is `--`: the sensor is not configured properly and you need to:
 sudo chmod a+rw /dev/ttyAMA0
 ```
 
-## Compiling the code
+## Compiling the code from sources
 
 Clone this repository in a ROS 2.0 workspace
 
