@@ -22,6 +22,8 @@
  - Drone dodge action control
  - 2D scanning and mapping
 
+### Technical data
+
 | Model No. | CA113 Spec. | CA113 Tolerance|
 | --- | --- | --- |
 | Maximun measuring range| 6 meters | 6.5m |
