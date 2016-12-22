@@ -1,4 +1,16 @@
-# precaster_laser2D
+- [Precaster 2D laser CA113](#precaster-2d-laser-ca113)
+ - [Features](#features)
+ - [Applications](#applications)
+ - [Technical data](#technical-data)
+- [Configuring Precaster 2D laser CA113A](#configuring-precaster-2d-laser-ca113a)
+- [Compiling the code from sources](#compiling-the-code-from-sources)
+- [Launching manually](#launching-manually)
+ - [Starting a roscore](#starting-a-roscore)
+ - [Setting Parameters](#setting-parameters)
+ - [Running Precaster 2D laser ca113a node](#running-precaster-2d-laser-ca113a-node)
+- [Launch file](#launch-file)
+
+# Precaster 2D laser CA113
 
 [CA113](https://www.precaster.com.tw/predustrial/ca113/) is designed as a compact and reliable 2D laser distance measuring sensor. The pulse technology gives the good accuracy and response time in distance measuring and a stable output under strong ambient light.
 
@@ -47,7 +59,7 @@
 | Weight		| 17.6g| ±5g | |
 
 
-## Configuring precaster 2D laser CA113A
+## Configuring Precaster 2D laser CA113A
 
 Make sure that your node is able to access the data from the sensor
 
@@ -71,7 +83,7 @@ If **XX** is `--`: the sensor is not configured properly and you need to:
 sudo chmod a+rw /dev/ttyAMA0
 ```
 
-## Compiling the code
+## Compiling the code from sources
 
 Clone this repository in a ROS workspace or [create a new one](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 
@@ -110,7 +122,7 @@ The same idea with the baudrate:
 rosparam set /precaster_laser2d_ca113a/baudrate 230400
 ```
 
-### Running the precaster 2D laser ca113a node
+### Running Precaster 2D laser ca113a node
 
 ```
 rosrun precaster_laser2d_ca113a ca113a
